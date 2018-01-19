@@ -1,28 +1,38 @@
-const http = new EasyHTTP;
+let http = new httpPal;
 
-// Get Users
-// http.get('https://jsonplaceholder.typicode.com/users')
-//   .then(data => console.log(data))
-//   .catch(err => console.log(err));
+//************* GET users ********
 
-// User Data
+// let users = http.get('https://jsonplaceholder.typicode.com/users')
+// .then(function(data){
+//   console.log(data);
+// })
+// .catch(function(error){
+//   console.log(error)
+// });
+
+// ************* User Data **********
 const data = {
-  name: 'John Doe',
-  username: 'johndoe',
-  email: 'jdoe@gmail.com'
+  name: "Me",
+  username: "Go-you2",
+  email: "me@you.com"
 }
 
-// Create User
-// http.post('https://jsonplaceholder.typicode.com/users', data)
-//   .then(data => console.log(data))
-//   .catch(err => console.log(err));
+// ************* POST Users **********
+// let userPost = http.post('https://jsonplaceholder.typicode.com/users',data)
+// .then(function(data){
+//   console.log(data);
+// })
+//   .catch(function(error){
+//     console.log(error);
+// })
 
-// Update Post
-// http.put('https://jsonplaceholder.typicode.com/users/2', data)
-//   .then(data => console.log(data))
-//   .catch(err => console.log(err));
 
-// Delete User
-http.delete('https://jsonplaceholder.typicode.com/users/2')
-.then(data => console.log(data))
-.catch(err => console.log(err));
+// ************* PUT Users **********
+let userUpdate = http.delete('https://jsonplaceholder.typicode.com/users/1')
+.then(function(data){
+  console.log(data);
+})
+  .catch(function(error){
+    console.log(error);
+})
+

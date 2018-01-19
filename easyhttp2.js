@@ -4,69 +4,72 @@
  *
  * @version 2.0.0
  * @author  Jozef Woroniecki
- * @license MIT
+ * @license Private
+ * 
  *
  **/
 
- class EasyHTTP {
-   
-  // Make an HTTP GET Request 
-  get(url) {
-    return new Promise((resolve, reject) => {
+
+class httpPal{
+
+  // ******* make an HTTP GET request **********
+  get(url){
+    return new Promise((resolve,reject)=>{
       fetch(url)
-      .then(res => res.json())
+      .then(response => response.json())
       .then(data => resolve(data))
-      .catch(err => reject(err));
+      .catch( error => reject(error))
+      
     });
   }
-
-  // Make an HTTP POST Request
-  post(url, data) {
-    return new Promise((resolve, reject) => {
-      fetch(url, {
+  
+  // ********* make an HTTP POST request ********
+  post(url,data){
+    return new Promise(function(resolve,reject){
+      fetch(url,{
         method: 'POST',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type':'application/json'
         },
         body: JSON.stringify(data)
       })
-      .then(res => res.json())
+      .then(response=>response.json())
       .then(data => resolve(data))
-      .catch(err => reject(err));
-    });
+      .catch(error => reject(error))
+    })
   }
 
-   // Make an HTTP PUT Request
-   put(url, data) {
-    return new Promise((resolve, reject) => {
-      fetch(url, {
+  // ********* make an HTTP PUT/UPDATE request ********
+  put(url,data){
+    return new Promise(function(resolve,reject){
+      fetch(url,{
         method: 'PUT',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type':'application/json'
         },
         body: JSON.stringify(data)
       })
-      .then(res => res.json())
+      .then(response=>response.json())
       .then(data => resolve(data))
-      .catch(err => reject(err));
-    });
+      .catch(error => reject(error))
+    })
   }
-
-  // Make an HTTP DELETE Request
-  delete(url) {
-    return new Promise((resolve, reject) => {
-      fetch(url, {
+  // ********* make an HTTP DELETE request ********
+  delete(url){
+    return new Promise(function(resolve,reject){
+      fetch(url,{
         method: 'DELETE',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type':'application/json'
         }
       })
-      .then(res => res.json())
-      .then(() => resolve('Resource Deleted...'))
-      .catch(err => reject(err));
-    });
+      .then(response => response.json())
+      .then(data => resolve("User deleted..."))
+      .catch(error => reject(error))
+    })
   }
 
- }
+}
 
- 
+
+
